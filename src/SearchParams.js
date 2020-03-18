@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import pet, { ANIMALS } from "@frontendmasters/pet";
-import Results from "./Results.js";
 import useDropdown from "./useDropdown";
+import Results from "./Results.js";
 
 const SearchParams = () => {
   const [location, setLocation] = useState("Seattle, WA"); //hook, all hooks begin with 'use'
   const [breeds, setBreeds] = useState([]);
+  const [pets, setPets] = useState([]);
   const [animal, AnimalDropdown] = useDropdown("Animal", "dog", ANIMALS);
   const [breed, BreedDropdown, setBreed] = useDropdown("Breed", "", breeds);
-  const [pets, setPets] = useState([]);
 
   async function requestPets() {
     const { animals } = await pet.animals({
